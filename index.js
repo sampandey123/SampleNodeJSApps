@@ -1,1 +1,2 @@
-console.log("Node repository created.");
+var msg = "Node repository created."
+console.log(msg);
