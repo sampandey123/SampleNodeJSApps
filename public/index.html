@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<title>NodeJSApp</title>
+<head>
+    <link rel="stylesheet" href="css/app.css"/>
+</head>
+<style>
+    /* body{
+    background-color: rgb(227, 248, 241);
+} */
+</style>
+<body>
+
+<div>
+<label>Enter User Information</label><br><br>
+</div>
+
+<div>
+<form action="/SaveUserInfo" method="POST">
+    <input type="text" name="user" value="Rohan"/><br><br>
+    <input type="text" name="email" value="sam@gmail.com"/><br><br>
+    <input type="submit" value="Submit"/>
+</form>
+<br>
+<br>
+<br>
+<br>
+<br>
+<label>Search User Information</label><br><br>
+<form action="/SearchUserInfo" method="GET">
+    <input type="text" name="user" value="Roshan"/><br><br>
+    <input type="text" name="email" value="sam@gmail.com"/><br><br>
+    <input type="submit" value="Search"/>
+</form>
+
+
+</div>
+
+<script></script>
+</body>
