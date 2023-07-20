@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const userRoutes = require('./routes/userRoutes.js');
+const login = require('./routes/login.js');
 
 const PORT = process.env.PORT || 3000;
 
@@ -13,6 +15,9 @@ app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
 app.set('views', __dirname);
 
+app.use('/', userRoutes);
+app.use('/', login);
+
 app.listen(PORT, () => {
     console.log("Server listening at port: "+PORT)
 });
@@ -21,18 +26,9 @@ app.get('/', (req, res) => {
     // res.sendStatus(404);
     // res.send('Hello');
     res.sendFile(__dirname+'/public/index.html');
+    console.log(__dirname);
 });
-app.post('/SaveUserInfo', async (req, res) => {
-    //res.send("Hello");
-    //console.log('SaveUserInfo req recieved.');
-    const user = req.body.user;
-    res.send('Saved username to database: ' +user);
-    //res.sendStatus(200);
-});
-app.get('/SearchUserInfo', async (req, res) =>{
-    const user = req.query.user;
-    const email = req.query.email;
-    //res.send("SearchUserInfo exit in database: "+user);
-    //res.sendFile(__dirname+'/public/userdbdata.html');
-    res.render(__dirname+'/views/userdbdata.html', {"user":user, "email":email});
-});
+
+
+
+
